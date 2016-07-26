@@ -1,0 +1,46 @@
+============== -*- outline -*- ==============
+
+                    regmap
+
+2016/07  Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+=============================================
+
+* コレは？
+
+	デバッグしている時に、何ビットが何の意味を意味を持つのかを
+	データシートを見ながらやってたりするのは面倒
+	定義ファイルを作る事で自動で各ビットの内容を吐き出すツールがコレ
+
+		> regmap.pl renesas/rsnd.cfg SSICR 0x900BD022 
+		SSICR    0x900bd022
+
+		1001 0000 0000 1011 
+		1101 0000 0010 0010 
+
+		  bit      val(hex)  name
+		  31       1         FORCE
+		  29       0         FIEN
+		  28       1         DMEN
+		  27       0         UIEN
+		  26       0         OIEN
+		  25       0         IIEN
+		  24       0         DIEN
+		  23,22    0         CHNL
+		  21,19    1         DWL
+		  18,16    3         SWL
+		  15       1         SCKD
+		  14       1         SWSD
+		  13       0         SCKP
+		  12       1         SWSP
+		  11       0         SPDP
+		  10       0         SDTA
+		  9        0         PDTA
+		  8        0         DEL
+		  6,4      2         CKDV
+		  3        0         MUEN
+		  1        1         TRMD
+		  0        0         EN
+
+* 定義ファイル
+
+	コレは各自で作らないとダメ
