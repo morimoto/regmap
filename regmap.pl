@@ -21,7 +21,7 @@ die "reg not defined" if (system( "grep -v \"#\" $CONFIG | grep \"\\\[.*$REG.*\\
 sub PrintRegVal {
 	my( $i );
 
-	printf "%s    0x%x\n\n", $REG, $VAL;
+	printf "%s    0x%08x\n\n", $REG, $VAL;
 
 	for ( $i = 31; $i >=0; $i-- ) {
 		printf "%d", !!($VAL & (1 << $i));
